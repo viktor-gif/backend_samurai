@@ -2,5 +2,11 @@
   "dependencies": {
     "express": "^4.18.1",
     "serve-favicon": "^2.5.0"
-  }
+  },
+  "name": "lesson-03",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/viktor-gif/backend_samurai.git",
+  "author": "viktor-gif <klim.victor.ua@gmail.com>",
+  "license": "MIT"
 }
