@@ -1,9 +1,9 @@
 import express from 'express'
 
-const app = express()
+export const app = express()
 const port = 3004
 
-const HTTP_STATUSES = {
+export const HTTP_STATUSES = {
     OK_200: 200,
     CREATED_201: 201,
     NO_CONTENT_204: 204,
@@ -15,7 +15,7 @@ const HTTP_STATUSES = {
 const jsonBody = express.json()
 app.use(jsonBody)
 
-const db = {
+export const db = {
     courses: [
         {id: 1, title: 'front-end'},
         {id: 2, title: 'back-end'},
@@ -55,7 +55,7 @@ app.get('/courses', (req, res) => {
 
 app.post('/courses', (req, res) => {
     if (!req.body.title) {
-        res.sendStatus(404)
+        res.sendStatus(HTTP_STATUSES.BAD_REQUEST_400)
         return
     }
 
@@ -87,7 +87,7 @@ app.put('/courses/:id', (req, res) => {
 
     foundCourse.title = req.body.title
 
-    res.json(foundCourse)
+    res.sendStatus(HTTP_STATUSES.NO_CONTENT_204)
 })
 
 // app.get('/', (req, res) => {
@@ -107,6 +107,11 @@ app.put('/courses/:id', (req, res) => {
 // app.post('/samurais', (req, res) => {
 //     res.send('We have created samurai')
 // })
+
+app.delete('/__test__/data', (req, res) => {
+    db.courses = []
+    res.sendStatus(HTTP_STATUSES.NO_CONTENT_204)
+})
 
 app.listen(port, () => {
     console.log(`example app listening on port ${port}`)
