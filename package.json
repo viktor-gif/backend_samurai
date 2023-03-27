@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "watch": "tsc -w",
-    "dev": "nodemon ./dist/index.js",
-    "test": "jest"
+    "dev": "nodemon ./dist/src/index.js",
+    "test": "jest --no-cashe"
   },
   "dependencies": {
     "express": "^4.18.2"

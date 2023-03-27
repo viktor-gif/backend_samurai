@@ -1,6 +1,6 @@
 import request from 'supertest'
-import { app } from '../src/index'
-import { HTTP_STATUSES } from '../src/index'
+import { app } from '../src/app'
+import { HTTP_STATUSES } from '../src/utils'
 import { CourseCreateModel } from '../src/models/courseCreateModel'
 
 describe('/course', () => {
